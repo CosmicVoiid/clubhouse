@@ -1,0 +1,36 @@
+{
+  "name": "clubhouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "devstart": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CosmicVoiid/clubhouse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CosmicVoiid/clubhouse/issues"
+  },
+  "homepage": "https://github.com/CosmicVoiid/clubhouse#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "helmet": "^4.6.0",
+    "mongoose": "^6.1.4",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
