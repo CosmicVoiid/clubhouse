@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head") %>
+	<body>
+		<%- include("./partials/nav") %>
+		<h1>Sign Up</h1>
+		<form method="POST" action="">
+			<label for="firstname">First Name</label>
+			<input type="text" id="firstname" name="firstname" required />
+			<label for="lastname">Last Name</label>
+			<input type="text" id="lastname" name="lastname" required />
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" required />
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required />
+			<label for="password-confirm">Confirm Password</label>
+			<input
+				type="password"
+				id="password-confirm"
+				name="password-confirm"
+				required
+			/>
+			<button type="submit">Sign Up</button>
+		</form>
+
+		<% if(errors) {%>
+		<ul class="error-list">
+			<% errors.forEach((error) => { %>
+			<li class="error-list__item"><%=error.msg%></li>
+			<% }); %>
+		</ul>
+		<% } %>
+	</body>
+</html>
