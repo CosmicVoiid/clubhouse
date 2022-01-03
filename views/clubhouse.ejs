@@ -5,5 +5,43 @@
 		<%- include("./partials/nav") %>
 
 		<h1 class="main-header">Welcome to the Clubhouse!</h1>
+
+		<% if(messages) { messages.forEach((message) => {%>
+		<div class="wrapper">
+			<div class="message-container">
+				<h3 class="message-container__item message-container__title">
+					<%= message.title %>
+				</h3>
+				<p class="message-container__item message-container__description">
+					<%= message.description %>
+				</p>
+				<% if (currentUser && (currentUser.status === "member" ||
+				currentUser.status === "admin")) { %>
+				<p class="message-container__item message-container__author">
+					By <%= message.user.username %>
+				</p>
+				<% } else { %>
+				<p class="message-container__item message-container__author">
+					By Unknown
+				</p>
+				<% } %>
+				<p class="message-container__item message-container__time">
+					<%=message.createdAt.toLocaleTimeString("en-us", {hour: 'numeric',
+					minute:'2-digit'}) + ", " + message.createdAt.toLocaleDateString()%>
+				</p>
+
+				<% if (currentUser && currentUser.status === "admin") {%>
+				<form method="POST" action="">
+					<input
+						type="hidden"
+						name="deleteMessageId"
+						value="<%=message._id%>"
+					/>
+					<button type="submit">Delete</button>
+				</form>
+				<%}%>
+			</div>
+		</div>
+		<% }); } %>
 	</body>
 </html>

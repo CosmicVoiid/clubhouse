@@ -9,8 +9,8 @@ const UserSchema = new Schema({
 	status: { type: String, required: true },
 });
 
-UserSchema.virtual("full_name").get(() => {
-	return first_name + " " + last_name;
+UserSchema.virtual("full_name").get(function () {
+	return this.first_name + " " + this.last_name;
 });
 
 const User = mongoose.model("User", UserSchema);

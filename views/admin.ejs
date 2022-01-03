@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head") %>
+	<body>
+		<%- include("./partials/nav") %> <% if (!currentUser) {%>
+		<h2>Please Login!</h2>
+		<% } else {%>
+		<h1>Become An Admin</h1>
+		<form method="POST" action="">
+			<label for="password">Admin Password</label>
+			<input type="password" id="password" name="password" required />
+			<button type="submit">Enter</button>
+		</form>
+
+		<% if(errors) {%>
+		<ul class="error-list">
+			<% errors.forEach((error) => { %>
+			<li class="error-list__item"><%=error.msg%></li>
+			<% }); %>
+		</ul>
+		<% }} %>
+	</body>
+</html>

@@ -14,8 +14,14 @@
 
 		<% if(errors) {%>
 		<ul class="error-list">
-			<% forEach(errors, (error) => { %>
-			<li class="error-list__item"><%=error%></li>
+			<% errors.forEach((error) => { %>
+			<li class="error-list__item"><%=error.msg%></li>
+			<% }); %>
+		</ul>
+		<% } if(messages.error) {%>
+		<ul class="error-list">
+			<% messages.error.forEach((msg) => { %>
+			<li class="error-list__item"><%=msg%></li>
 			<% }); %>
 		</ul>
 		<% } %>
